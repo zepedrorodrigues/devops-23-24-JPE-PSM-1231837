@@ -34159,10 +34159,14 @@ var EmployeeList = /*#__PURE__*/function (_React$Component2) {
         });
       });
 <<<<<<< HEAD
+<<<<<<< HEAD
       return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description"), /*#__PURE__*/React.createElement("th", null, "Job Title"), /*#__PURE__*/React.createElement("th", null, "Job Years"), /*#__PURE__*/React.createElement("th", null, "Email")), employees));
 =======
       return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description")), employees));
 >>>>>>> 1d58a19 (gitignore and structure correction)
+=======
+      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description"), /*#__PURE__*/React.createElement("th", null, "Job Title"), /*#__PURE__*/React.createElement("th", null, "Job Years")), employees));
+>>>>>>> db4d52f (CA1 First week assignment)
     }
   }]);
   return EmployeeList;
@@ -34178,10 +34182,14 @@ var Employee = /*#__PURE__*/function (_React$Component3) {
     key: "render",
     value: function render() {
 <<<<<<< HEAD
+<<<<<<< HEAD
       return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobTitle), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobYears), /*#__PURE__*/React.createElement("td", null, this.props.employee.email));
 =======
       return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description));
 >>>>>>> 1d58a19 (gitignore and structure correction)
+=======
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobTitle), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobYears));
+>>>>>>> db4d52f (CA1 First week assignment)
     }
   }]);
   return Employee;

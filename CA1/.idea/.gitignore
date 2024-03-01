@@ -6,5 +6,8 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+<<<<<<< HEAD
 # GitHub Copilot persisted chat sessions
 /copilot/chatSessions
+=======
+>>>>>>> db4d52f (CA1 First week assignment)

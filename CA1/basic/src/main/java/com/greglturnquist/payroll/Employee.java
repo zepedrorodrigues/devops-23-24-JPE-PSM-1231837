@@ -35,19 +35,29 @@ public class Employee {
 	private String	jobTitle;
 	private int jobYears;
 
+<<<<<<< HEAD
 	private String email;
 
 	public Employee() {}
 
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
 		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0||!validEmail(email))
+=======
+	public Employee() {}
+
+	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears) {
+		if(!validString(firstName,lastName,description,jobTitle)||jobYears<0)
+>>>>>>> db4d52f (CA1 First week assignment)
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
 		this.jobTitle = jobTitle;
 		this.jobYears = jobYears;
+<<<<<<< HEAD
 		this.email = email;
+=======
+>>>>>>> db4d52f (CA1 First week assignment)
 	}
 
 	private boolean validString(String... strings) {
@@ -64,7 +74,11 @@ public class Employee {
 		return Objects.equals(id, employee.id) &&
 			Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) &&
 			Objects.equals(description, employee.description)&& Objects.equals(jobTitle, employee.jobTitle)&&
+<<<<<<< HEAD
 			Objects.equals(jobYears, employee.jobYears) && Objects.equals(email, employee.email);
+=======
+			Objects.equals(jobYears, employee.jobYears);
+>>>>>>> db4d52f (CA1 First week assignment)
 	}
 
 	@Override
@@ -116,12 +130,16 @@ public class Employee {
 	}
 
 	public void setJobTitle(String jobTitle) {
+<<<<<<< HEAD
 		if(!validString(jobTitle))
 			{throw new IllegalArgumentException("Invalid jobTitle");}
+=======
+>>>>>>> db4d52f (CA1 First week assignment)
 		this.jobTitle = jobTitle;}
 
 	public int getJobYears() {
 		return jobYears;}
+<<<<<<< HEAD
 	public int setJobYears(int jobYears) {
 		if(jobYears<0)
 		{throw new IllegalArgumentException("Invalid jobYears");}
@@ -143,6 +161,15 @@ public class Employee {
 
 
 
+=======
+
+	public int setJobYears(int jobYears) {
+		if(jobYears<0)
+			{throw new IllegalArgumentException("Invalid jobYears");}
+		this.jobYears = jobYears;
+		return jobYears;}
+
+>>>>>>> db4d52f (CA1 First week assignment)
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -152,7 +179,10 @@ public class Employee {
 			", description='" + description + '\'' +
 			", jobTitle='" + jobTitle + '\'' +
 			", jobYears='" + jobYears + '\'' +
+<<<<<<< HEAD
 			", email='" + email + '\'' +
+=======
+>>>>>>> db4d52f (CA1 First week assignment)
 			'}';
 	}
 }

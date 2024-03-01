@@ -43,7 +43,10 @@ class EmployeeList extends React.Component{
 						<th>Description</th>
 						<th>Job Title</th>
 						<th>Job Years</th>
+<<<<<<< HEAD
 						<th>Email</th>
+=======
+>>>>>>> db4d52f (CA1 First week assignment)
 					</tr>
 					{employees}
 				</tbody>
@@ -63,7 +66,10 @@ class Employee extends React.Component{
 				<td>{this.props.employee.description}</td>
 				<td>{this.props.employee.jobTitle}</td>
 				<td>{this.props.employee.jobYears}</td>
+<<<<<<< HEAD
 				<td>{this.props.employee.email}</td>
+=======
+>>>>>>> db4d52f (CA1 First week assignment)
 			</tr>
 		)
 	}

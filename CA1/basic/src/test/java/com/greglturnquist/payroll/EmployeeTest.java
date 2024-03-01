@@ -1,10 +1,14 @@
 package com.greglturnquist.payroll;
 
+<<<<<<< HEAD
 import org.junit.jupiter.api.BeforeEach;
+=======
+>>>>>>> db4d52f (CA1 First week assignment)
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 class EmployeeTest {
+<<<<<<< HEAD
     String nullObject = null;
     String validFirstName = "Frodo";
     String emptyString = "";
@@ -20,19 +24,34 @@ class EmployeeTest {
     void setUp() {
         validEmployee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
     }
+=======
+    String validFirstName = "Frodo";
+    String validLastName = "Baggins";
+    String validDescription = "ring bearer";
+    String validJobTitle = "ring bearer";
+>>>>>>> db4d52f (CA1 First week assignment)
 
 
     @Test
     void TestConstructorValidParametersShouldNotThrowException(){
+<<<<<<< HEAD
         assertDoesNotThrow(()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail));}
+=======
+        assertDoesNotThrow(()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,5));}
+>>>>>>> db4d52f (CA1 First week assignment)
 
     @Test
     void TestConstructorEmptyNameShouldThrowException(){
         //Arrange
         String expectedMessage = "Invalid parameters";
         //Act
+<<<<<<< HEAD
         IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class,()-> new Employee(emptyString,validLastName,validDescription,validJobTitle,validJobYears,validEmail));
         IllegalArgumentException exception2 = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,emptyString,validDescription,validJobTitle,validJobYears,validEmail));
+=======
+        IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class,()-> new Employee("","Baggins","ring bearer","ring bearer",5));
+        IllegalArgumentException exception2 = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","","ring bearer","ring bearer",5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception1.getMessage());
         assertEquals(expectedMessage,exception2.getMessage());}
@@ -42,8 +61,13 @@ class EmployeeTest {
         //Arrange
         String expectedMessage = "Invalid parameters";
         //Act
+<<<<<<< HEAD
         IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class,()-> new Employee(null,validLastName,validDescription,validJobTitle,validJobYears,validEmail));
         IllegalArgumentException exception2 = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,null,validDescription,validJobTitle,validJobYears,validEmail));
+=======
+        IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class,()-> new Employee(null,"Baggins","ring bearer","ring bearer",5));
+        IllegalArgumentException exception2 = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo",null,"ring bearer","ring bearer",5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception1.getMessage());
         assertEquals(expectedMessage,exception2.getMessage());}
@@ -53,7 +77,11 @@ class EmployeeTest {
         //Arrange
         String expectedMessage = "Invalid parameters";
         //Act
+<<<<<<< HEAD
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,emptyString,validJobTitle,validJobYears,validEmail));
+=======
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","Baggins","","ring bearer",5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception.getMessage());}
 
@@ -62,7 +90,11 @@ class EmployeeTest {
         //Arrange
         String expectedMessage = "Invalid parameters";
         //Act
+<<<<<<< HEAD
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,nullObject,validJobTitle,validJobYears,validEmail));
+=======
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","Baggins",null,"ring bearer",5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception.getMessage());}
 
@@ -71,7 +103,11 @@ class EmployeeTest {
         //Arrange
         String expectedMessage = "Invalid parameters";
         //Act
+<<<<<<< HEAD
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,emptyString,validJobYears,validEmail));
+=======
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","Baggins","ring bearer","",5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception.getMessage());}
 
@@ -80,7 +116,11 @@ class EmployeeTest {
         //Arrange
         String expectedMessage = "Invalid parameters";
         //Act
+<<<<<<< HEAD
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,null,validJobYears,validEmail));
+=======
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","Baggins","ring bearer",null,5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception.getMessage());}
 
@@ -88,6 +128,7 @@ class EmployeeTest {
     void TestConstructorNegativeJobYearsShouldThrowException(){
         //Arrange
         String expectedMessage = "Invalid parameters";
+<<<<<<< HEAD
         int negativeJobYears = -5;
         //Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,negativeJobYears,validEmail));
@@ -119,14 +160,23 @@ class EmployeeTest {
         String invalidEmail = "jpnmsrgmail.com";
         //Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,invalidEmail));
+=======
+        //Act
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","Baggins","ring bearer","ring bearer",-5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(expectedMessage,exception.getMessage());}
 
     @Test
     void testEqualsTrue() {
         //Arrange
+<<<<<<< HEAD
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        Employee employee2 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee1.equals(employee2);
         //Assert
@@ -135,7 +185,11 @@ class EmployeeTest {
     @Test
     void testEqualsFalseDifferentTypeOfObject() {
         //Arrange
+<<<<<<< HEAD
         Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee.equals(new Object());
         //Assert
@@ -144,9 +198,14 @@ class EmployeeTest {
     @Test
     void testEqualsFalseSameObjectDifferentFirstName() {
         //Arrange
+<<<<<<< HEAD
         String validFirstName2 = "Bilbo";
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName2,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        Employee employee2 = new Employee("Bilbo",validLastName,validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee1.equals(employee2);
         //Assert
@@ -154,9 +213,14 @@ class EmployeeTest {
     @Test
     void testEqualsFalseSameObjectDifferentLastName() {
         //Arrange
+<<<<<<< HEAD
         String validLastName2 = "Silva";
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName,validLastName2,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        Employee employee2 = new Employee(validFirstName,"Silva",validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee1.equals(employee2);
         //Assert
@@ -165,9 +229,14 @@ class EmployeeTest {
     @Test
     void testEqualsFalseSameObjectDifferentDescription() {
         //Arrange
+<<<<<<< HEAD
         String validDescription2 = "burglar";
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName,validLastName,validDescription2,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        Employee employee2 = new Employee(validFirstName,validLastName,"burglar",validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee1.equals(employee2);
         //Assert
@@ -176,9 +245,14 @@ class EmployeeTest {
     @Test
     void testEqualsFalseSameObjectDifferentJobTitle() {
         //Arrange
+<<<<<<< HEAD
         String validJobTitle2 = "burglaro";
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName,validLastName,validDescription,validJobTitle2,validJobYears,validEmail);
+=======
+        Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        Employee employee2 = new Employee(validFirstName,validLastName,validDescription,"burglar",5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee1.equals(employee2);
         //Assert
@@ -187,6 +261,7 @@ class EmployeeTest {
     @Test
     void testEqualsFalseSameObjectDifferentJobYears() {
         //Arrange
+<<<<<<< HEAD
         int validJobYears2 = 10;
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears2,validEmail);
@@ -201,6 +276,10 @@ class EmployeeTest {
         String validEmail2 = "jpnmsr@gmail.com";
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
         Employee employee2 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail2);
+=======
+        Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        Employee employee2 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,10);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         boolean result = employee1.equals(employee2);
         //Assert
@@ -209,7 +288,11 @@ class EmployeeTest {
     @Test
     void getIdComesNull() {
         //Arrange
+<<<<<<< HEAD
         Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         Long result = employee.getId();
         //Assert
@@ -218,13 +301,18 @@ class EmployeeTest {
     @Test
     void setId() {
         //Arrange
+<<<<<<< HEAD
         Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         employee.setId(1L);
         //Assert
         assertEquals(1L,employee.getId());}
 
     @Test
+<<<<<<< HEAD
     void setIdNegativeIdShouldThrowException(){
         //Arrange and Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> validEmployee.setId(-5L));
@@ -235,6 +323,11 @@ class EmployeeTest {
     void getFirstName() {
         //Arrange
         Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
+=======
+    void getFirstName() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+>>>>>>> db4d52f (CA1 First week assignment)
         //Act
         String result = employee.getFirstName();
         //Assert
@@ -242,6 +335,7 @@ class EmployeeTest {
 
     @Test
     void setFirstName() {
+<<<<<<< HEAD
         //Arrange and Act
         validEmployee.setFirstName("Bilbo");
         //Assert
@@ -265,12 +359,28 @@ class EmployeeTest {
     void getLastName() {
         //Arrange and Act
         String result = validEmployee.getLastName();
+=======
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        employee.setFirstName("Bilbo");
+        //Assert
+        assertEquals("Bilbo",employee.getFirstName());}
+
+    @Test
+    void getLastName() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        String result = employee.getLastName();
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(validLastName,result);}
 
     @Test
     void setLastName() {
         //Arrange
+<<<<<<< HEAD
         String validLastName = "Borgins";
         //Act
         validEmployee.setLastName(validLastName);
@@ -295,12 +405,27 @@ class EmployeeTest {
     void getDescription() {
         //Arrange and Act
         String result = validEmployee.getDescription();
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        employee.setLastName("Baggins");
+        //Assert
+        assertEquals("Baggins",employee.getLastName());}
+
+    @Test
+    void getDescription() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        String result = employee.getDescription();
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(validDescription,result);}
 
     @Test
     void setDescription() {
         //Arrange
+<<<<<<< HEAD
         String validDescription = "burglaro";
         // Act
         validEmployee.setDescription(validDescription);
@@ -325,6 +450,20 @@ class EmployeeTest {
     void getJobTitle() {
         //Arrange and Act
         String result = validEmployee.getJobTitle();
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        employee.setDescription("burglar");
+        //Assert
+        assertEquals("burglar",employee.getDescription());}
+
+    @Test
+    void getJobTitle() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        String result = employee.getJobTitle();
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(validJobTitle,result);
     }
@@ -332,6 +471,7 @@ class EmployeeTest {
     @Test
     void setJobTitle() {
         //Arrange
+<<<<<<< HEAD
         String validJobTitle2 = "burglarito";
         //Act
         validEmployee.setJobTitle(validJobTitle2);
@@ -356,12 +496,27 @@ class EmployeeTest {
     void getJobYears() {
         //Arrange and Act
         int result = validEmployee.getJobYears();
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        employee.setJobTitle("burglar");
+        //Assert
+        assertEquals("burglar",employee.getJobTitle());}
+
+    @Test
+    void getJobYears() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        int result = employee.getJobYears();
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals(5,result);}
 
     @Test
     void setJobYears() {
         //Arrange
+<<<<<<< HEAD
         int newJobYears = 10;
         //Act
         validEmployee.setJobYears(newJobYears);
@@ -372,10 +527,25 @@ class EmployeeTest {
     void setJobYearsNegativeYearsShouldThrowException(){
         //Arrange and Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> validEmployee.setJobYears(-5));
+=======
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        employee.setJobYears(10);
+        //Assert
+        assertEquals(10,employee.getJobYears());}
+
+    @Test
+    void setJobYearsNegativeShouldThrowException() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> employee.setJobYears(-5));
+>>>>>>> db4d52f (CA1 First week assignment)
         //Assert
         assertEquals("Invalid jobYears",exception.getMessage());}
 
     @Test
+<<<<<<< HEAD
     void getEmailTestValid(){
         //Arrange and Act
         String result = validEmployee.getEmail();
@@ -421,4 +591,13 @@ class EmployeeTest {
         String result = validEmployee.toString();
         //Assert
         assertEquals(expected,result);}
+=======
+    void testToString() {
+        //Arrange
+        Employee employee = new Employee(validFirstName,validLastName,validDescription,validJobTitle,5);
+        //Act
+        String result = employee.toString();
+        //Assert
+        assertEquals("Employee{id=null, firstName='Frodo', lastName='Baggins', description='ring bearer', jobTitle='ring bearer', jobYears='5'}",result);}
+>>>>>>> db4d52f (CA1 First week assignment)
     }
