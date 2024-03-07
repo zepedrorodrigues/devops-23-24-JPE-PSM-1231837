@@ -35,16 +35,19 @@ public class Employee {
 	private String	jobTitle;
 	private int jobYears;
 
+	private String email;
+
 	public Employee() {}
 
-	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears) {
-		if(!validString(firstName,lastName,description,jobTitle)||jobYears<0)
+	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
+		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
 		this.jobTitle = jobTitle;
 		this.jobYears = jobYears;
+		this.email = email;
 	}
 
 	private boolean validString(String... strings) {
@@ -61,7 +64,7 @@ public class Employee {
 		return Objects.equals(id, employee.id) &&
 			Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) &&
 			Objects.equals(description, employee.description)&& Objects.equals(jobTitle, employee.jobTitle)&&
-			Objects.equals(jobYears, employee.jobYears);
+			Objects.equals(jobYears, employee.jobYears) && Objects.equals(email, employee.email);
 	}
 
 	@Override
@@ -73,6 +76,8 @@ public class Employee {
 	}
 
 	public void setId(Long id) {
+		if(id<0)
+			{throw new IllegalArgumentException("Invalid id");}
 		this.id = id;
 	}
 
@@ -81,6 +86,8 @@ public class Employee {
 	}
 
 	public void setFirstName(String firstName) {
+		if(!validString(firstName))
+			{throw new IllegalArgumentException("Invalid firstName");}
 		this.firstName = firstName;
 	}
 
@@ -89,6 +96,8 @@ public class Employee {
 	}
 
 	public void setLastName(String lastName) {
+		if(!validString(lastName))
+			{throw new IllegalArgumentException("Invalid lastName");}
 		this.lastName = lastName;
 	}
 
@@ -97,6 +106,8 @@ public class Employee {
 	}
 
 	public void setDescription(String description) {
+		if(!validString(description))
+			{throw new IllegalArgumentException("Invalid description");}
 		this.description = description;
 	}
 
@@ -105,16 +116,27 @@ public class Employee {
 	}
 
 	public void setJobTitle(String jobTitle) {
+		if(!validString(jobTitle))
+			{throw new IllegalArgumentException("Invalid jobTitle");}
 		this.jobTitle = jobTitle;}
 
 	public int getJobYears() {
 		return jobYears;}
-
 	public int setJobYears(int jobYears) {
 		if(jobYears<0)
-			{throw new IllegalArgumentException("Invalid jobYears");}
+		{throw new IllegalArgumentException("Invalid jobYears");}
 		this.jobYears = jobYears;
 		return jobYears;}
+
+	public String getEmail() {
+		return email;}
+
+	public void setEmail(String email) {
+		if(!validString(email))
+			{throw new IllegalArgumentException("Invalid email");}
+		this.email = email;}
+
+
 
 	@Override
 	public String toString() {
@@ -125,6 +147,7 @@ public class Employee {
 			", description='" + description + '\'' +
 			", jobTitle='" + jobTitle + '\'' +
 			", jobYears='" + jobYears + '\'' +
+			", email='" + email + '\'' +
 			'}';
 	}
 }
