@@ -44,9 +44,13 @@ class EmployeeList extends React.Component{
 						<th>Job Title</th>
 						<th>Job Years</th>
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<th>Email</th>
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+						<th>Email</th>
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 					</tr>
 					{employees}
 				</tbody>
@@ -67,9 +71,13 @@ class Employee extends React.Component{
 				<td>{this.props.employee.jobTitle}</td>
 				<td>{this.props.employee.jobYears}</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<td>{this.props.employee.email}</td>
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+				<td>{this.props.employee.email}</td>
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 			</tr>
 		)
 	}

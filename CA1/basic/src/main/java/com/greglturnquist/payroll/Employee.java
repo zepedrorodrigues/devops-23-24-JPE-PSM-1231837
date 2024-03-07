@@ -34,6 +34,7 @@ public class Employee {
 	private String description;
 	private String	jobTitle;
 	private int jobYears;
+	private String email;
 
 <<<<<<< HEAD
 	private String email;
@@ -45,9 +46,14 @@ public class Employee {
 =======
 	public Employee() {}
 
+<<<<<<< HEAD
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears) {
 		if(!validString(firstName,lastName,description,jobTitle)||jobYears<0)
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears, String email) {
+		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -55,10 +61,14 @@ public class Employee {
 		this.jobTitle = jobTitle;
 		this.jobYears = jobYears;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.email = email;
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
 	}
+=======
+		this.email = email;}
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 
 	private boolean validString(String... strings) {
 		for(String s: strings) {
@@ -75,10 +85,14 @@ public class Employee {
 			Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) &&
 			Objects.equals(description, employee.description)&& Objects.equals(jobTitle, employee.jobTitle)&&
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Objects.equals(jobYears, employee.jobYears) && Objects.equals(email, employee.email);
 =======
 			Objects.equals(jobYears, employee.jobYears);
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+			Objects.equals(jobYears, employee.jobYears)&& Objects.equals(email, employee.email);
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 	}
 
 	@Override
@@ -169,7 +183,16 @@ public class Employee {
 		this.jobYears = jobYears;
 		return jobYears;}
 
+<<<<<<< HEAD
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+	public String getEmail() {
+		return email;}
+
+	public void setEmail(String email) {
+		this.email = email;}
+
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -180,9 +203,13 @@ public class Employee {
 			", jobTitle='" + jobTitle + '\'' +
 			", jobYears='" + jobYears + '\'' +
 <<<<<<< HEAD
+<<<<<<< HEAD
 			", email='" + email + '\'' +
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+			", email='" + email + '\'' +
+>>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 			'}';
 	}
 }
