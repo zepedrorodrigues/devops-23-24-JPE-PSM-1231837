@@ -7,7 +7,12 @@
 /dataSources/
 /dataSources.local.xml
 <<<<<<< HEAD
+<<<<<<< HEAD
 # GitHub Copilot persisted chat sessions
 /copilot/chatSessions
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+# GitHub Copilot persisted chat sessions
+/copilot/chatSessions
+>>>>>>> 1351e18 (Email @ check feature enabled)

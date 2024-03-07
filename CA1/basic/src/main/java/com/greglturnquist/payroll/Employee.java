@@ -64,8 +64,12 @@ public class Employee {
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 =======
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
+<<<<<<< HEAD
 		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
 >>>>>>> 0c48db2 (Email Field included)
+=======
+		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0||!validEmail(email))
+>>>>>>> 1351e18 (Email @ check feature enabled)
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -200,6 +204,7 @@ public class Employee {
 
 	public void setEmail(String email) {
 		if(!validString(email)||!validEmail(email))
+<<<<<<< HEAD
 			{throw new IllegalArgumentException("Invalid email");}
 		this.email = email;}
 
@@ -238,8 +243,15 @@ public class Employee {
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 =======
 		if(!validString(email))
+=======
+>>>>>>> 1351e18 (Email @ check feature enabled)
 			{throw new IllegalArgumentException("Invalid email");}
 		this.email = email;}
+
+	private boolean validEmail(String email) {
+		if(email == null || email.trim().length() == 0||!email.contains("@")) {
+			return false;}
+		return true;}
 
 
 

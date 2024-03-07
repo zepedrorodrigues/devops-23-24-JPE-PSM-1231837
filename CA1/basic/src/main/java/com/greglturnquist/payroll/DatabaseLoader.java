@@ -54,9 +54,13 @@ public class DatabaseLoader implements CommandLineRunner { // <2>
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 =======
 		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer","ring bearer",0,"frodobaggins@gmail.com"));
+<<<<<<< HEAD
 		this.repository.save(new Employee("Bilbo", "Baggins", "burglar","burglar",100,"bilbobaggins@gmail.com"));
 >>>>>>> 0c48db2 (Email Field included)
 	}
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+		this.repository.save(new Employee("Bilbo", "Baggins", "burglar","burglar",100,"bilbobaggins@gmail.com"));}
+>>>>>>> 1351e18 (Email @ check feature enabled)
 }
 // end::code[]

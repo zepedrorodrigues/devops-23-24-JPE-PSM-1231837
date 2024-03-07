@@ -296,6 +296,7 @@ class EmployeeTest {
         String invalidEmail = "jpnmsrgmail.com";
         //Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,invalidEmail));
+<<<<<<< HEAD
 =======
         //Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee("Frodo","Baggins","ring bearer","ring bearer",-5));
@@ -335,6 +336,8 @@ class EmployeeTest {
 =======
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,nullObject));
 >>>>>>> 0c48db2 (Email Field included)
+=======
+>>>>>>> 1351e18 (Email @ check feature enabled)
         //Assert
         assertEquals(expectedMessage,exception.getMessage());}
 
@@ -1083,6 +1086,15 @@ class EmployeeTest {
     void setEmailTestNullStringShouldThrowException(){
         //Arrange and Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> validEmployee.setEmail(nullObject));
+        //Assert
+        assertEquals("Invalid email",exception.getMessage());}
+
+    @Test
+    void setEmailTestDoesNotContainAtShouldThrowException(){
+        //Arrange
+        String invalidEmail = "jpnmsrgmail.com";
+        // Act
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> validEmployee.setEmail(invalidEmail));
         //Assert
         assertEquals("Invalid email",exception.getMessage());}
 
