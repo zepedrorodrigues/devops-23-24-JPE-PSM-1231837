@@ -34,19 +34,18 @@ public class Employee {
 	private String description;
 	private String	jobTitle;
 	private int jobYears;
-	private String email;
 
 	public Employee() {}
 
-	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears, String email) {
-		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
+	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears) {
+		if(!validString(firstName,lastName,description,jobTitle)||jobYears<0)
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
 		this.jobTitle = jobTitle;
 		this.jobYears = jobYears;
-		this.email = email;}
+	}
 
 	private boolean validString(String... strings) {
 		for(String s: strings) {
@@ -62,7 +61,7 @@ public class Employee {
 		return Objects.equals(id, employee.id) &&
 			Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) &&
 			Objects.equals(description, employee.description)&& Objects.equals(jobTitle, employee.jobTitle)&&
-			Objects.equals(jobYears, employee.jobYears)&& Objects.equals(email, employee.email);
+			Objects.equals(jobYears, employee.jobYears);
 	}
 
 	@Override
@@ -117,12 +116,6 @@ public class Employee {
 		this.jobYears = jobYears;
 		return jobYears;}
 
-	public String getEmail() {
-		return email;}
-
-	public void setEmail(String email) {
-		this.email = email;}
-
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -132,7 +125,6 @@ public class Employee {
 			", description='" + description + '\'' +
 			", jobTitle='" + jobTitle + '\'' +
 			", jobYears='" + jobYears + '\'' +
-			", email='" + email + '\'' +
 			'}';
 	}
 }
