@@ -34,13 +34,13 @@ public class Employee {
 	private String description;
 	private String	jobTitle;
 	private int jobYears;
-	private String email;
 
 <<<<<<< HEAD
 	private String email;
 
 	public Employee() {}
 
+<<<<<<< HEAD
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
 		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0||!validEmail(email))
 =======
@@ -54,12 +54,17 @@ public class Employee {
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears, String email) {
 		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
+=======
+	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears) {
+		if(!validString(firstName,lastName,description,jobTitle)||jobYears<0)
+>>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
 		this.jobTitle = jobTitle;
 		this.jobYears = jobYears;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		this.email = email;
@@ -69,6 +74,9 @@ public class Employee {
 =======
 		this.email = email;}
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
+=======
+	}
+>>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 
 	private boolean validString(String... strings) {
 		for(String s: strings) {
@@ -86,6 +94,7 @@ public class Employee {
 			Objects.equals(description, employee.description)&& Objects.equals(jobTitle, employee.jobTitle)&&
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Objects.equals(jobYears, employee.jobYears) && Objects.equals(email, employee.email);
 =======
 			Objects.equals(jobYears, employee.jobYears);
@@ -93,6 +102,9 @@ public class Employee {
 =======
 			Objects.equals(jobYears, employee.jobYears)&& Objects.equals(email, employee.email);
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
+=======
+			Objects.equals(jobYears, employee.jobYears);
+>>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 	}
 
 	@Override
@@ -160,6 +172,7 @@ public class Employee {
 		this.jobYears = jobYears;
 		return jobYears;}
 
+<<<<<<< HEAD
 	public String getEmail() {
 		return email;}
 
@@ -193,6 +206,8 @@ public class Employee {
 		this.email = email;}
 
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
+=======
+>>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -204,12 +219,15 @@ public class Employee {
 			", jobYears='" + jobYears + '\'' +
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			", email='" + email + '\'' +
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
 =======
 			", email='" + email + '\'' +
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
+=======
+>>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
 			'}';
 	}
 }
