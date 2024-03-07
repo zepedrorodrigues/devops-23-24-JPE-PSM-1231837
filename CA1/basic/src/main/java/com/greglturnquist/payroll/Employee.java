@@ -40,7 +40,7 @@ public class Employee {
 	public Employee() {}
 
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
-		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
+		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0||!validEmail(email))
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -132,9 +132,14 @@ public class Employee {
 		return email;}
 
 	public void setEmail(String email) {
-		if(!validString(email))
+		if(!validString(email)||!validEmail(email))
 			{throw new IllegalArgumentException("Invalid email");}
 		this.email = email;}
+
+	private boolean validEmail(String email) {
+		if(email == null || email.trim().length() == 0||!email.contains("@")) {
+			return false;}
+		return true;}
 
 
 

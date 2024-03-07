@@ -113,6 +113,16 @@ class EmployeeTest {
         assertEquals(expectedMessage,exception.getMessage());}
 
     @Test
+    void TestConstructorEmailWithoutAtSignShouldThrowException(){
+        //Arrange
+        String expectedMessage = "Invalid parameters";
+        String invalidEmail = "jpnmsrgmail.com";
+        //Act
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,invalidEmail));
+        //Assert
+        assertEquals(expectedMessage,exception.getMessage());}
+
+    @Test
     void testEqualsTrue() {
         //Arrange
         Employee employee1 = new Employee(validFirstName,validLastName,validDescription,validJobTitle,validJobYears,validEmail);
@@ -392,6 +402,15 @@ class EmployeeTest {
     void setEmailTestNullStringShouldThrowException(){
         //Arrange and Act
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> validEmployee.setEmail(nullObject));
+        //Assert
+        assertEquals("Invalid email",exception.getMessage());}
+
+    @Test
+    void setEmailTestDoesNotContainAtShouldThrowException(){
+        //Arrange
+        String invalidEmail = "jpnmsrgmail.com";
+        // Act
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,()-> validEmployee.setEmail(invalidEmail));
         //Assert
         assertEquals("Invalid email",exception.getMessage());}
 
