@@ -46,6 +46,7 @@ class EmployeeList extends React.Component{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<th>Email</th>
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
@@ -54,6 +55,9 @@ class EmployeeList extends React.Component{
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 =======
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+						<th>Email</th>
+>>>>>>> 0c48db2 (Email Field included)
 					</tr>
 					{employees}
 				</tbody>
@@ -76,6 +80,7 @@ class Employee extends React.Component{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<td>{this.props.employee.email}</td>
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
@@ -84,6 +89,9 @@ class Employee extends React.Component{
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 =======
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+				<td>{this.props.employee.email}</td>
+>>>>>>> 0c48db2 (Email Field included)
 			</tr>
 		)
 	}

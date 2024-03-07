@@ -38,6 +38,7 @@ public class DatabaseLoader implements CommandLineRunner { // <2>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer","ring bearer",0,"frodobaggins@gmail.com"));
 		this.repository.save(new Employee("Bilbo", "Baggins", "burglar","burglar",100,"bilbobaggins@gmail.com"));}
 =======
@@ -51,6 +52,10 @@ public class DatabaseLoader implements CommandLineRunner { // <2>
 		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer","ring bearer",0));
 		this.repository.save(new Employee("Bilbo", "Baggins", "burglar","burglar",100));
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer","ring bearer",0,"frodobaggins@gmail.com"));
+		this.repository.save(new Employee("Bilbo", "Baggins", "burglar","burglar",100,"bilbobaggins@gmail.com"));
+>>>>>>> 0c48db2 (Email Field included)
 	}
 >>>>>>> db4d52f (CA1 First week assignment)
 }

@@ -36,10 +36,14 @@ public class Employee {
 	private int jobYears;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0c48db2 (Email Field included)
 	private String email;
 
 	public Employee() {}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
 		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0||!validEmail(email))
@@ -58,6 +62,10 @@ public class Employee {
 	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears) {
 		if(!validString(firstName,lastName,description,jobTitle)||jobYears<0)
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+	public Employee(String firstName, String lastName, String description, String jobTitle, int jobYears,String email) {
+		if(!validString(firstName,lastName,description,jobTitle,email)||jobYears<0)
+>>>>>>> 0c48db2 (Email Field included)
 			{throw new IllegalArgumentException("Invalid parameters");}
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -67,9 +75,13 @@ public class Employee {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.email = email;
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+		this.email = email;
+>>>>>>> 0c48db2 (Email Field included)
 	}
 =======
 		this.email = email;}
@@ -95,6 +107,7 @@ public class Employee {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Objects.equals(jobYears, employee.jobYears) && Objects.equals(email, employee.email);
 =======
 			Objects.equals(jobYears, employee.jobYears);
@@ -105,6 +118,9 @@ public class Employee {
 =======
 			Objects.equals(jobYears, employee.jobYears);
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+			Objects.equals(jobYears, employee.jobYears) && Objects.equals(email, employee.email);
+>>>>>>> 0c48db2 (Email Field included)
 	}
 
 	@Override
@@ -157,14 +173,20 @@ public class Employee {
 
 	public void setJobTitle(String jobTitle) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if(!validString(jobTitle))
 			{throw new IllegalArgumentException("Invalid jobTitle");}
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
+=======
+		if(!validString(jobTitle))
+			{throw new IllegalArgumentException("Invalid jobTitle");}
+>>>>>>> 0c48db2 (Email Field included)
 		this.jobTitle = jobTitle;}
 
 	public int getJobYears() {
 		return jobYears;}
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public int setJobYears(int jobYears) {
 		if(jobYears<0)
@@ -190,24 +212,38 @@ public class Employee {
 
 =======
 
+=======
+>>>>>>> 0c48db2 (Email Field included)
 	public int setJobYears(int jobYears) {
 		if(jobYears<0)
-			{throw new IllegalArgumentException("Invalid jobYears");}
+		{throw new IllegalArgumentException("Invalid jobYears");}
 		this.jobYears = jobYears;
 		return jobYears;}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> db4d52f (CA1 First week assignment)
 =======
+=======
+>>>>>>> 0c48db2 (Email Field included)
 	public String getEmail() {
 		return email;}
 
 	public void setEmail(String email) {
+<<<<<<< HEAD
 		this.email = email;}
 
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 =======
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+		if(!validString(email))
+			{throw new IllegalArgumentException("Invalid email");}
+		this.email = email;}
+
+
+
+>>>>>>> 0c48db2 (Email Field included)
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -220,6 +256,7 @@ public class Employee {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			", email='" + email + '\'' +
 =======
 >>>>>>> db4d52f (CA1 First week assignment)
@@ -228,6 +265,9 @@ public class Employee {
 >>>>>>> db4a3be (E-mail field added (not yet checked for @ presence))
 =======
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+			", email='" + email + '\'' +
+>>>>>>> 0c48db2 (Email Field included)
 			'}';
 	}
 }

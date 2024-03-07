@@ -34162,6 +34162,7 @@ var EmployeeList = /*#__PURE__*/function (_React$Component2) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description"), /*#__PURE__*/React.createElement("th", null, "Job Title"), /*#__PURE__*/React.createElement("th", null, "Job Years"), /*#__PURE__*/React.createElement("th", null, "Email")), employees));
 =======
       return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description")), employees));
@@ -34175,6 +34176,9 @@ var EmployeeList = /*#__PURE__*/function (_React$Component2) {
 =======
       return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description"), /*#__PURE__*/React.createElement("th", null, "Job Title"), /*#__PURE__*/React.createElement("th", null, "Job Years")), employees));
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description"), /*#__PURE__*/React.createElement("th", null, "Job Title"), /*#__PURE__*/React.createElement("th", null, "Job Years"), /*#__PURE__*/React.createElement("th", null, "Email")), employees));
+>>>>>>> 0c48db2 (Email Field included)
     }
   }]);
   return EmployeeList;
@@ -34193,6 +34197,7 @@ var Employee = /*#__PURE__*/function (_React$Component3) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobTitle), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobYears), /*#__PURE__*/React.createElement("td", null, this.props.employee.email));
 =======
       return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description));
@@ -34206,6 +34211,9 @@ var Employee = /*#__PURE__*/function (_React$Component3) {
 =======
       return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobTitle), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobYears));
 >>>>>>> 95c258c (Revert "E-mail field added (not yet checked for @ presence)")
+=======
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobTitle), /*#__PURE__*/React.createElement("td", null, this.props.employee.jobYears), /*#__PURE__*/React.createElement("td", null, this.props.employee.email));
+>>>>>>> 0c48db2 (Email Field included)
     }
   }]);
   return Employee;
