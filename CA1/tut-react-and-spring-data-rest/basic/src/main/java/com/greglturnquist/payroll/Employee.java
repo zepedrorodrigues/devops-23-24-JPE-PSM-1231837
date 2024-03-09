@@ -35,16 +35,19 @@ public class Employee {
 	private String jobTitle;
 	private int jobYears;
 
+	private String email;
+
 	public Employee() {}
 
-	public Employee(String firstName, String lastName, String description,String JobTitle, int jobYears) {
-		if(!validString(firstName, lastName, description, JobTitle)|| !validJobYears(jobYears))
+	public Employee(String firstName, String lastName, String description,String JobTitle, int jobYears, String email) {
+		if(!validString(firstName, lastName, description, JobTitle,email)|| !validJobYears(jobYears))
 			throw new IllegalArgumentException();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
 		this.jobTitle = JobTitle;
 		this.jobYears = jobYears;
+		this.email = email;
 	}
 
 	@Override
@@ -57,7 +60,8 @@ public class Employee {
 			Objects.equals(lastName, employee.lastName) &&
 			Objects.equals(description, employee.description)&&
 			Objects.equals(jobTitle, employee.jobTitle)&&
-			Objects.equals(jobYears, employee.jobYears);
+			Objects.equals(jobYears, employee.jobYears)&&
+			Objects.equals(email, employee.email);
 	}
 
 	@Override
@@ -119,6 +123,13 @@ public class Employee {
 			throw new IllegalArgumentException();
 		this.jobYears = jobYears;}
 
+	public String getEmail() {return email;}
+
+	public void setEmail(String email) {
+		if(!validString(email))
+			throw new IllegalArgumentException();
+		this.email = email;}
+
 	@Override
 	public String toString() {
 		return "Employee{" +
@@ -128,6 +139,7 @@ public class Employee {
 			", description='" + description + '\'' +
 			", jobTitle='" + jobTitle + '\'' +
 			", jobYears=" + jobYears +
+			", email='" + email + '\'' +
 			'}';
 	}
 
