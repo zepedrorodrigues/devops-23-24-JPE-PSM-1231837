@@ -112,6 +112,13 @@ public class Employee {
 			throw new IllegalArgumentException();
 		this.JobTitle = JobTitle;}
 
+	public int getJobYears() {return jobYears;}
+
+	public void setJobYears(int jobYears) {
+		if(!validJobYears(jobYears))
+			throw new IllegalArgumentException();
+		this.jobYears = jobYears;}
+
 	@Override
 	public String toString() {
 		return "Employee{" +
