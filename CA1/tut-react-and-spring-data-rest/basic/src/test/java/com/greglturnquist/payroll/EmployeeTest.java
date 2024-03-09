@@ -68,6 +68,11 @@ class EmployeeTest {
         //Arrange and Act and Assert
         assertThrows(IllegalArgumentException.class, () -> new Employee("John", "Doe", "Manager", null,1));}
 
+
+    @Test
+    void testConstructorInvalidJobYearsShouldThrowException() {
+        //Arrange and Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> new Employee("John", "Doe", "Manager", "Manager",-1));}
     @Test
     void testEqualsTrue() {
         //Arrange and Act

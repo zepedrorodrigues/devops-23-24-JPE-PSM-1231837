@@ -32,7 +32,7 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private String description;
-	private String JobTitle;
+	private String jobTitle;
 	private int jobYears;
 
 	public Employee() {}
@@ -43,7 +43,7 @@ public class Employee {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
-		this.JobTitle = JobTitle;
+		this.jobTitle = JobTitle;
 		this.jobYears = jobYears;
 	}
 
@@ -56,13 +56,13 @@ public class Employee {
 			Objects.equals(firstName, employee.firstName) &&
 			Objects.equals(lastName, employee.lastName) &&
 			Objects.equals(description, employee.description)&&
-			Objects.equals(JobTitle, employee.JobTitle)&&
+			Objects.equals(jobTitle, employee.jobTitle)&&
 			Objects.equals(jobYears, employee.jobYears);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, firstName, lastName, description,JobTitle);
+		return Objects.hash(id, firstName, lastName, description, jobTitle);
 	}
 
 	public Long getId() {
@@ -105,12 +105,12 @@ public class Employee {
 		this.description = description;
 	}
 
-	public String getJobTitle() {return JobTitle;}
+	public String getJobTitle() {return jobTitle;}
 
 	public void setJobTitle(String JobTitle) {
 		if(!validString(JobTitle))
 			throw new IllegalArgumentException();
-		this.JobTitle = JobTitle;}
+		this.jobTitle = JobTitle;}
 
 	public int getJobYears() {return jobYears;}
 
@@ -126,7 +126,7 @@ public class Employee {
 			", firstName='" + firstName + '\'' +
 			", lastName='" + lastName + '\'' +
 			", description='" + description + '\'' +
-			", JobTitle='" + JobTitle + '\'' +
+			", jobTitle='" + jobTitle + '\'' +
 			", jobYears=" + jobYears +
 			'}';
 	}
