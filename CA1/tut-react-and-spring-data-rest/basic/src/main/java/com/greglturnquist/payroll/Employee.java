@@ -37,6 +37,8 @@ public class Employee {
 	public Employee() {}
 
 	public Employee(String firstName, String lastName, String description,String JobTitle) {
+		if(!validString(firstName, lastName, description, JobTitle))
+			throw new IllegalArgumentException("Invalid input for Employee constructor. All fields must be non-null and non-empty.");
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.description = description;
@@ -65,6 +67,8 @@ public class Employee {
 	}
 
 	public void setId(Long id) {
+		if(id == null || id < 0)
+			throw new IllegalArgumentException("Invalid input for setId. id must be non-null and non-negative.");
 		this.id = id;
 	}
 
@@ -73,6 +77,8 @@ public class Employee {
 	}
 
 	public void setFirstName(String firstName) {
+		if(!validString(firstName))
+			throw new IllegalArgumentException("Invalid input for setFirstName. firstName must be non-null and non-empty.");
 		this.firstName = firstName;
 	}
 
@@ -81,6 +87,8 @@ public class Employee {
 	}
 
 	public void setLastName(String lastName) {
+		if(!validString(lastName))
+			throw new IllegalArgumentException("Invalid input for setLastName. lastName must be non-null and non-empty.");
 		this.lastName = lastName;
 	}
 
@@ -89,12 +97,17 @@ public class Employee {
 	}
 
 	public void setDescription(String description) {
+		if(!validString(description))
+			throw new IllegalArgumentException("Invalid input for setDescription. description must be non-null and non-empty.");
 		this.description = description;
 	}
 
 	public String getJobTitle() {return JobTitle;}
 
-	public void setJobTitle(String JobTitle) {this.JobTitle = JobTitle;}
+	public void setJobTitle(String JobTitle) {
+		if(!validString(JobTitle))
+			throw new IllegalArgumentException("Invalid input for setJobTitle. JobTitle must be non-null and non-empty.");
+		this.JobTitle = JobTitle;}
 
 	@Override
 	public String toString() {
@@ -106,5 +119,11 @@ public class Employee {
 			", JobTitle='" + JobTitle + '\'' +
 			'}';
 	}
+
+	private boolean validString(String ... strings){
+		for(String str : strings){
+			if(str == null || str.isEmpty()){
+				return false;}}
+		return true;}
 }
 // end::code[]
