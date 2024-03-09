@@ -73,6 +73,21 @@ class EmployeeTest {
     void testConstructorInvalidJobYearsShouldThrowException() {
         //Arrange and Act and Assert
         assertThrows(IllegalArgumentException.class, () -> new Employee("John", "Doe", "Manager", "Manager",-1,"jpnmsr@gmail.com"));}
+
+    @Test
+    void testConstructorEmptyEmailShouldThrowException() {
+        //Arrange and Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> new Employee("John", "Doe", "Manager", "Manager",1,""));}
+
+    @Test
+    void testConstructorInvalidEmailShouldThrowException() {
+        //Arrange and Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> new Employee("John", "Doe", "Manager", "Manager",1,"jpnmsrgmail.com"));}
+
+    @Test
+    void testConstructorNullEmailShouldThrowException() {
+        //Arrange and Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> new Employee("John", "Doe", "Manager", "Manager",1,null));}
     @Test
     void testEqualsTrue() {
         //Arrange and Act
@@ -298,10 +313,43 @@ class EmployeeTest {
         assertThrows(IllegalArgumentException.class, () -> employee.setJobYears(-1));}
 
     @Test
+    void getEmail() {
+        //Arrange and Act
+        Employee employee = new Employee("John", "Doe", "Manager", "Manager",1,"jpnmsr@gmail.com");
+        //Assert
+        assertEquals("jpnmsr@gmail.com", employee.getEmail());}
+
+    @Test
+    void setEmail() {
+        //Arrange and Act
+        Employee employee = new Employee("John", "Doe", "Manager", "Manager",1,"jpnmsr@gmail.com");}
+
+    @Test
+    void setEmailEmptyStringShouldThrowException() {
+        //Arrange and Act
+        Employee employee = new Employee("John", "Doe", "Manager", "Manager",1,"jpnmmsr@gmail.com");
+        //Assert
+        assertThrows(IllegalArgumentException.class, () -> employee.setEmail(""));}
+
+    @Test
+    void setEmailNullShouldThrowException() {
+        //Arrange and Act
+        Employee employee = new Employee("John", "Doe", "Manager", "Manager",1,"jpnmsr@gmail.com");
+        //Assert
+        assertThrows(IllegalArgumentException.class, () -> employee.setEmail(null));}
+
+    @Test
+    void setEmailInvalidEmailShouldThrowException() {
+        //Arrange and Act
+        Employee employee = new Employee("John", "Doe", "Manager", "Manager",1,"jpnmsr@gmail.com");
+        //Assert
+        assertThrows(IllegalArgumentException.class, () -> employee.setEmail("jpnmsr.com"));}
+
+    @Test
     void testToString() {
         //Arrange and Act
         Employee employee = new Employee("John", "Doe", "Manager", "Manager",1,"jpnmsr@gmail.com");
         //Assert
-        assertEquals("Employee{id=null, firstName='John', lastName='Doe', description='Manager', JobTitle='Manager', jobYears=1}", employee.toString());}
+        assertEquals("Employee{id=null, firstName='John', lastName='Doe', description='Manager', jobTitle='Manager', jobYears=1, email='jpnmsr@gmail.com'}", employee.toString());}
 
 }
