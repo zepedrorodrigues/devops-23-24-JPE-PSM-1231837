@@ -40,7 +40,7 @@ public class Employee {
 	public Employee() {}
 
 	public Employee(String firstName, String lastName, String description,String JobTitle, int jobYears, String email) {
-		if(!validString(firstName, lastName, description, JobTitle,email)|| !validJobYears(jobYears))
+		if(!validString(firstName, lastName, description, JobTitle,email)|| !validJobYears(jobYears)|| !validEmail(email))
 			throw new IllegalArgumentException();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -126,7 +126,7 @@ public class Employee {
 	public String getEmail() {return email;}
 
 	public void setEmail(String email) {
-		if(!validString(email))
+		if(!validString(email)|| !validEmail(email))
 			throw new IllegalArgumentException();
 		this.email = email;}
 
@@ -153,5 +153,11 @@ public class Employee {
 		if(jobYears < 0)
 			return false;
 		return true;}
+
+	private boolean validEmail(String email){
+		if(email == null || email.isEmpty()|| !email.contains("@"))
+			return false;
+		return true;
+	}
 }
 // end::code[]
