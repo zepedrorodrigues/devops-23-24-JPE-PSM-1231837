@@ -57,7 +57,7 @@ public class Employee {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, firstName, lastName, description);
+		return Objects.hash(id, firstName, lastName, description,JobTitle);
 	}
 
 	public Long getId() {
@@ -91,6 +91,10 @@ public class Employee {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getJobTitle() {return JobTitle;}
+
+	public void setJobTitle(String JobTitle) {this.JobTitle = JobTitle;}
 
 	@Override
 	public String toString() {
