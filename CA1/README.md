@@ -1,7 +1,3 @@
-Integrating the specific Git commands into the previously outlined technical report structure, here's how it would look in Markdown format, tailored for a `readme.md` file. This version combines the narrative description of each task with the corresponding Git commands to provide a comprehensive "tutorial-style" guide.
-
----
-
 # Technical Report for CA1: Version Control with Git
 
 ## Introduction
