@@ -1,7 +1,3 @@
-Integrating the specific Git commands into the previously outlined technical report structure, here's how it would look in Markdown format, tailored for a `readme.md` file. This version combines the narrative description of each task with the corresponding Git commands to provide a comprehensive "tutorial-style" guide.
-
----
-
 # Technical Report for CA1: Version Control with Git
 
 ## Introduction
@@ -240,7 +236,3 @@ contrasting with Git's decentralized nature. This fundamental difference influen
 ### Implementing SVN as the Alternative
 
 The implementation steps detailed above illustrate how SVN can be applied to achieve similar version control goals as Git for this assignment. The main difference lies in SVN's centralized approach, requiring constant connectivity for committing changes and less flexibility in branching and merging compared to Git. However, SVN's straightforward handling of binary files and its simpler model might be advantageous for certain projects or teams less familiar with Git's complexities.
-
----
-
-This section provides a comprehensive comparison and guide on using SVN as an alternative to Git for the assignment, including specific command-line examples for essential SVN operations. This enriches the report by offering a clear perspective on how the same objectives can be achieved using a different version control system, catering to different project needs or preferences.
