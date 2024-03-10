@@ -69,14 +69,235 @@ To implement the initial setup and a new feature directly on the master branch w
    - In the remote repository, issues should be created for this new feature (named after the portions of the function needed to create, e.g "JobYears untested", "Jobyears feature testing", "JobYears debugged") 
    - These issues are issued numbers, that will be afterwards used in the way I'll further on explain.
    
-2. After implementing the feature and tests, add the changes and commit:
+2. Add new JobYears Field to the Emplyee class constructor with validations::
+    ```java
+    public Employee(String firstName, String lastName, String description,String JobTitle, int jobYears) {
+		if(!validString(firstName, lastName, description, JobTitle)|| !validJobYears(jobYears))
+			throw new IllegalArgumentException();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.description = description;
+		this.jobTitle = JobTitle;
+		this.jobYears = jobYears;
+		this.email = email;
+	}
+   
+   private boolean validString(String ... strings){
+		for(String str : strings){
+			if(str == null || str.isEmpty()){
+				return false;}}
+		return true;}
+   
+   private boolean validJobYears(int jobYears){
+		 if(jobYears < 0){return false;}
+		 return true;}
+    ```
+3. Add the new field to the _Employee_ class getters and setters:
+   ```java
+   public int getJobYears() {
+       return jobYears;
+   }
+
+   public void setJobYears(int jobYears) {
+   if(!validJobYears(jobYears)) throw new IllegalArgumentException();    
+   this.jobYears = jobYears;
+   }
+   ```
+4. Add the new field to the _Employee_ class toString method:
+   ```java
+   public String toString() {
+   return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.role + '\'' + ", jobYears=" + this.jobYears + '}';
+   ```
+5. Add the new field to the equals method:
+    ```java
+    public boolean equals(Object o) {
+		 if (this == o) return true;
+		 if (o == null || getClass() != o.getClass()) return false;
+		 Employee employee = (Employee) o;
+		 return Objects.equals(id, employee.id) &&
+			Objects.equals(firstName, employee.firstName) &&
+			Objects.equals(lastName, employee.lastName) &&
+			Objects.equals(description, employee.description) &&
+			Objects.equals(jobYears, employee.jobYears)
+	}
+    ```
+
+6. Add the new field to the _Employee_ class hashCode method:
+    ```java
+    public int hashCode() {
+		 return Objects.hash(id, firstName, lastName, description, jobYears);
+	}
+    ```
+7. Create an EmployeeTest class and add unit tests for the new field, ensuring that all methods and validations are covered:
+   ```java
+   class EmployeeTest {
+
+    @Test
+    void createEmployee_Success() throws InstantiationException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        Employee employee = new Employee(firstName, lastName, description, jobYears, "frodo.baggins@shire.com");
+        assertEquals(firstName, employee.getFirstName());
+        assertEquals(lastName, employee.getLastName());
+        assertEquals(description, employee.getDescription());
+        assertEquals(String.valueOf(jobYears), employee.getJobYears());
+    }
+
+    @Test
+    void createEmployee_InvalidFirstName(){
+        String firstName = "";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+    @Test
+    void createEmployee_InvalidLastName(){
+        String firstName = "Frodo";
+        String lastName = "";
+        String description = "ring bearer";
+        int jobYears = 1;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+    @Test
+    void createEmployee_InvalidDescription(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "";
+        int jobYears = 1;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+    @Test
+    void createEmployee_InvalidJobYears(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = -1;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+    @Test
+    void createEmployee_NullFirstName(){
+        String firstName = null;
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+    @Test
+    void createEmployee_NullLastName(){
+        String firstName = "Frodo";
+        String lastName = null;
+        String description = "ring bearer";
+        int jobYears = 0;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+
+    }
+
+    @Test
+    void createEmployee_NullDescription(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = null;
+        int jobYears = 0;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+   @Test
+   void createEmployeeValidJobYears() throws IllegalArgumentException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        Employee employee = new Employee(firstName, lastName, description, jobYears);} 
+   
+   @Test
+    void createEmployee_ZeroJobYears() throws IllegalArgumentException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        Employee employee = new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com");
+        assertEquals(firstName, employee.getFirstName());
+        assertEquals(lastName, employee.getLastName());
+        assertEquals(description, employee.getDescription());
+        assertEquals(String.valueOf(jobYears), employee.getJobYears());
+    }
+   
+    @Test
+    void createEmployee_NegativeJobYears(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = -1;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears);}
+}
+
+9. 9. Add the new field to the render methods in the app.js Javascript file:
+```javascript
+   class EmployeeList extends React.Component{
+	render() {
+		const employees = this.props.employees.map(employee =>
+			<Employee key={employee._links.self.href} employee={employee}/>
+		);
+		return (
+			<table>
+				<tbody>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Description</th>
+						<th>Job Years</th>
+					</tr>
+					{employees}
+				</tbody>
+			</table>
+		)
+	}
+}
+````
+```javascript
+class Employee extends React.Component{
+	render() {
+		return (
+			<tr>
+				<td>{this.props.employee.firstName}</td>
+				<td>{this.props.employee.lastName}</td>
+				<td>{this.props.employee.description}</td>
+				<td>{this.props.employee.jobYears}</td>
+			</tr>
+		)
+	}
+}
+````
+10. Add the new field to the run method in the DatabaseLoader class (you can also add new entries):
+```java
+   	public void run(String... strings) throws Exception { // <4>
+    this.repository.save(new Employee("Frodo", "Baggins", "ring bearer", 2));
+    this.repository.save(new Employee("Bilbo", "Baggins", "burglar", 35));
+    this.repository.save(new Employee("Gandalf", "the Grey", "wizard", 10000));
+}
+```
+
+11. Open a bash in the basic folder of the app and run the following command:
+```bash
+./mvnw spring-boot:run
+```
+12. Open a browser and navigate to [http://localhost:8080/employees](http://localhost:8080/employees) to see the new field in action.
+13. After implementing the feature and tests, add the changes and commit:
    ```bash
    git add .
    git commit -m "Fix #<issue-number> Added jobYears field to Employee entity with tests"
    ```
    - the commit message will be this one and the corresponding issues #<issue-number> will be closed
 
-2. Tag the new version and push, and then mark the assignment completion:
+14. Tag the new version and push, and then mark the assignment completion:
    ```bash
    git tag v1.2.0 -m "Added jobYears field with tests and Debugged"
    git push
@@ -111,8 +332,151 @@ To use branches for developing new features and fixing bugs, with the master bra
    git branch email-field
    git checkout email-field
    ```
+3. Add the new field to the _Employee_ class:
+```java
+private String email;
+```
+4. Add the new field to the _Employee_ class constructor and add validations to the _Employee_ class constructor so that the parameters are always valid:
+```java
+public Employee(String firstName, String lastName, String description,String JobTitle, int jobYears, String email) {
+   if(!validString(firstName, lastName, description, JobTitle,email)|| !validJobYears(jobYears)|| !validEmail(email))
+      throw new IllegalArgumentException();
+   this.firstName = firstName;
+   this.lastName = lastName;
+   this.description = description;
+   this.jobTitle = JobTitle;
+   this.jobYears = jobYears;
+   this.email = email;
+}
 
-2. After implementing the feature and conducting tests, add and commit the changes, then push the branch:
+private boolean validEmail(String email){
+   if(email == null || email.isEmpty()))
+      return false;
+   return true;
+}
+```
+5. Add the new field to the _Employee_ class getters and setters:
+```java
+public String getEmail() {
+    return email;
+}
+
+public void setEmail(String email) {
+    this.email = email;
+}
+```
+6. Add the new field to the _Employee_ class toString method:
+```java
+public String toString() {
+return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.role + '\'' + ", jobYears=" + this.jobYears + ", email='" + this.email + '\'' + '}';}
+```
+7.Add the new field to the equals method:
+```java
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Employee employee = (Employee) o;
+    return Objects.equals(id, employee.id) &&
+            Objects.equals(firstName, employee.firstName) &&
+            Objects.equals(lastName, employee.lastName) &&
+            Objects.equals(description, employee.description) &&
+            Objects.equals(jobYears, employee.jobYears) &&
+            Objects.equals(email, employee.email);
+}
+```
+8. Add the new field to the _Employee_ class hashCode method:
+```java
+public int hashCode() {
+    return Objects.hash(id, firstName, lastName, description, jobYears, email);
+}
+```
+9. Create an EmployeeTest class and add unit tests for the new field, ensuring that all methods and validations are covered (since the constructor was changed, the tests for the job years field will also be updated):
+```java
+cclass EmployeeTest {
+
+    @Test
+    void createEmployee_Success() throws IllegalArgumentException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        Employee employee = new Employee(firstName, lastName, description, jobYears, "frodo.baggins@shire.com");
+        assertEquals(firstName, employee.getFirstName());
+        assertEquals(lastName, employee.getLastName());
+        assertEquals(description, employee.getDescription());
+        assertEquals(String.valueOf(jobYears), employee.getJobYears());
+    }
+
+    @Test
+    void createEmployee_EmtpyEmail(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        String email = "";
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,email));
+    }
+
+    @Test
+    void createEmployee_NullEmail(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        String email = null;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,email));
+    }
+}
+```
+10. Add the new field to the render methods in the app.js Javascript file:
+```javascript
+class EmployeeList extends React.Component{
+    render() {
+        const employees = this.props.employees.map(employee =>
+            <Employee key={employee._links.self.href} employee={employee}/>
+        );
+        return (
+            <table>
+                <tbody>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Description</th>
+                        <th>Job Years</th>
+                        <th>Email</th>
+                    </tr>
+                    {employees}
+                </tbody>
+            </table>
+        )
+    }
+}
+```
+```javascript
+class Employee extends React.Component{
+	render() {
+		return (
+			<tr>
+				<td>{this.props.employee.firstName}</td>
+				<td>{this.props.employee.lastName}</td>
+				<td>{this.props.employee.description}</td>
+				<td>{this.props.employee.jobYears}</td>
+				<td>{this.props.employee.email}</td>
+			</tr>
+		)
+	}
+}
+```
+11. Add the new field to the run method in the DatabaseLoader class (you can also add new entries):
+```java
+	public void run(String... strings) throws Exception { // <4>
+		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer", 2,"frodo.baggins@shire.com"));
+		this.repository.save(new Employee("Bilbo", "Baggins", "burglar", 35, "bilbo.baggins@shire.com"));
+		this.repository.save(new Employee("Gandalf", "the Grey", "wizard", 10000,"gandalf_the_grey@youshallnotpass.com"));
+	}
+```
+
+12. After implementing the feature and conducting tests, add and commit the changes, then push the branch:
    ```bash
    git add .
    git commit -m "Fixed #<issue-number> Added email field to Employee entity with validation and tests"
@@ -121,7 +485,7 @@ To use branches for developing new features and fixing bugs, with the master bra
    - all these commands have been previously explained
    - we are still working in the "temporary" branch for the email fixture, not in the master
 
-3. Merge the feature branch into master and tag the new version:
+13. Merge the feature branch into master and tag the new version:
    ```bash
    git checkout master
    git merge --no-ff email-field
@@ -142,7 +506,27 @@ To use branches for developing new features and fixing bugs, with the master bra
    git checkout -b fix-invalid-email
    ```
 
-2. After fixing and testing, add, commit, and push the bug fix:
+3. Add validation to the _Employee_ class to ensure that the email field contains the '@' character:
+```java
+private boolean validEmail(String email){
+   if(email == null || email.isEmpty() || !email.contains("@"))
+      return false;
+   return true;
+}
+```
+4. Add tests to the _EmployeeTest_ class to ensure that the email validation is working:
+```java
+@Test
+void createEmployee_InvalidEmail(){
+    String firstName = "Frodo";
+    String lastName = "Baggins";
+    String description = "ring bearer";
+    int jobYears = 1;
+    String email = "frodo.baggins";
+    assertThrows(IllegalArgumentException.class, () -> new Employee(firstName, lastName, description, jobYears,email));
+}
+```
+5. After fixing and testing, add, commit, and push the bug fix:
    ```bash
    git add .
    git commit -m "Fix #<issue-number> Implemented validation for email field in Employee entity"
