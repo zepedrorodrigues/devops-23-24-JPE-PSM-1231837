@@ -148,12 +148,12 @@ task runServer(type:JavaExec, dependsOn: classes){
    }
    ```
 
-4**Running the Test**:
+4. **Running the Test**:
    Execute the test using the Gradle command:
    ```bash
    ./gradlew test
    ```
-5**Committing the Changes**:
+5. **Committing the Changes**:
    After implementing the unit test, commit the changes to your repository:
    ```bash
    git add .
@@ -220,14 +220,14 @@ task zipSources(type: Zip) {
 
 ## Finalizing the Assignment
 
-- **Tagging the Repository**:
+1. **Tagging the Repository**:
   After completing all tasks, tag your repository to signify the completion of CA2 Part 1:
   ```bash
   git tag -a ca2-part1 -m "Completed CA2 Part 1 with Gradle tasks"
   git push origin ca2-part1
   ```
 
-- **Updating README.md**:
+2. **Updating README.md**:
   Make sure the README.md reflects all the steps, commands, and code snippets used throughout the assignment, following the markdown syntax for clarity.
 
 ## Conclusion
