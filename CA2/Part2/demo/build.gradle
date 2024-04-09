@@ -35,6 +35,13 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+// Define custom task to delete Webpack-generated files
+task cleanWebpack(type: Delete) {
+	delete 'src/main/resources/static/built/'
+}
+
+// Make the clean task depend on cleanWebpack
+clean.dependsOn cleanWebpack
 
 // Define custom task to copy the JAR file to the dist directory
 task copyJarToDist(type: Copy) {
