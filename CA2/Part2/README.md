@@ -130,6 +130,13 @@ The alternative solution for CA2 Part 2 was developed using Maven, a widely used
     </plugin>
     ```
 - **Webpack and `package.json`:** The same `package.json` configurations were applied to facilitate npm scripts for building and cleaning the frontend.
+    ```json
+    "scripts": {
+        "build": "webpack --config webpack.config.js",
+        "clean": "rimraf ./built",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+    ```
 
 #### 3. Packaging for Distribution
 - **Maven Assembly Plugin:** The Maven Assembly Plugin was configured to package the application into a distributable JAR, including all its dependencies.
@@ -153,29 +160,31 @@ The alternative solution for CA2 Part 2 was developed using Maven, a widely used
 - **Maven Resources Plugin:** Used to copy the generated JAR file to the target directory.
     ```xml
     <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.2.0</version>
-        <executions>
-            <execution>
-                <id>copy-resources</id>
-                <phase>package</phase>
-                <goals>
-                    <goal>copy-resources</goal>
-                </goals>
-                <configuration>
-                    <outputDirectory>${project.build.directory}/target</outputDirectory>
-                    <resources>
-                        <resource>
-                            <directory>${project.build.directory}</directory>
-                            <includes>
-                                <include>*.jar</include>
-                            </includes>
-                        </resource>
-                    </resources>
-                </configuration>
-            </execution>
-        </executions>
-    </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase> <!-- Bind to the package phase -->
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo message="Copying built JAR to dist directory..."/>
+								<mkdir dir="${project.build.directory}/../dist"/> <!-- Ensure the directory exists -->
+								<copy todir="${project.build.directory}/../dist">
+									<fileset dir="${project.build.directory}" includes="*.jar"/>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+    ```
+- After this implementation run this command to see the project build and copy the jar to the designated directory
+    ```bash
+    mvn clean package
     ```
 
 #### 5. Cleaning Up Webpack Artifacts
@@ -192,6 +201,11 @@ The alternative solution for CA2 Part 2 was developed using Maven, a widely used
             </filesets>
         </configuration>
     </plugin>
+    ```
+  
+- After this implementation run this command to see the project run and clean the desired files
+    ```bash
+    mvn clean install
     ```
 
 
