@@ -24,11 +24,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-frontend{
+frontend {
 	nodeVersion = "16.20.2"
-	assembleScript = "run build"
-	cleanScript = "run clean"
-	checkScript = "run check"
+	assembleScript = "npm run build"  // Adjust if using npm or yarn
+	cleanScript = "npm run clean"
+	checkScript = "npm run check"
 }
 
 tasks.named('test') {
