@@ -29,30 +29,11 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// Define constants for frontend script commands
-def buildScript = "run build"
-def cleanScript = "run clean"
-def checkScript = "run check"
-
 frontend {
 	nodeVersion = "16.20.2"
-	assembleScript = buildScript
-	cleanScript = cleanScript
-	checkScript = checkScript
-}
-
-task webpack(type: Exec) {
-	commandLine 'node_modules/.bin/webpack'
-}
-
-task assembleFrontend(type: Exec) {
-	group = "CA2/Part2"
-
-	description = "Assemble the frontend"
-
-	dependsOn 'webpack'
-
-	commandLine 'node_modules/.bin/webpack'
+	assembleScript = "run build"
+	cleanScript = "run clean"
+	checkScript = "run check"
 }
 
 task archiveCopy (type:Copy) {
@@ -62,7 +43,7 @@ task archiveCopy (type:Copy) {
 
 	def jarfile = file('./build/libs/react-and-spring-data-rest-basic-0.0.1-SNAPSHOT.jar')
 
-	def destination = file("${rootProject.projectDir}/dist")
+	def destination = file('${rootProject.projectDir}/dist')
 
 	from jarfile into destination
 }
@@ -78,5 +59,3 @@ task deleteWebpackItems (type: Delete) {
 }
 
 clean.dependsOn deleteWebpackItems
-
-
