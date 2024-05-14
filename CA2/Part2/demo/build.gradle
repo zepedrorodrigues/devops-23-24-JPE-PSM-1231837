@@ -41,6 +41,20 @@ frontend {
 	checkScript = checkScript
 }
 
+task webpack(type: Exec) {
+	commandLine 'node_modules/.bin/webpack'
+}
+
+task assembleFrontend(type: Exec) {
+	group = "CA2/Part2"
+
+	description = "Assemble the frontend"
+
+	dependsOn 'webpack'
+
+	commandLine 'node_modules/.bin/webpack'
+}
+
 task archiveCopy (type:Copy) {
 	group = "CA2/Part2"
 
