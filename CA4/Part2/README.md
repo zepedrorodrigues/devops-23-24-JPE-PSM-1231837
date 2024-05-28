@@ -142,10 +142,10 @@ volumes:
 - h2-data: Defines a named volume with the local driver for persisting data.
 
 
-After the Docker-Compose file was created we can build the images by running the following command:
+After the Docker-Compose file was created we can start the services after building the imag by running the following command:
 
 ```bash
-docker-compose build
+docker-compose up --build
 ```
 Push the Web docker image to Docker Hub by running the following command:
 
