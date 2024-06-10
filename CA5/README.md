@@ -82,7 +82,7 @@ This tutorial provides a detailed guide for setting up CI/CD pipelines using Jen
 
 4. **Configure Jenkins**
     - Complete the initial setup wizard.
-    - Install necessary plugins such as Git, Gradle and Nodejs.
+    - Install necessary plugins such as Git, Gradle, Nodejs and HTMLPublisher.
 
 ### Step 2: Create Jenkins Pipeline
 
@@ -210,6 +210,20 @@ pipeline {
     }
 }}
 ```
+- Eventhough `Javadoc` is a task that is initially available in gradle, it requires adjustments to the `build.gradle` file to work properly. In this case, the `javadoc` task was used to generate the Javadoc and the `publishHTML` step was used to publish it in Jenkins.
+```groovy
+// Configure the existing javadoc task
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compileClasspath
+    destinationDir = file("$buildDir/docs/javadoc")
+    options.encoding = 'UTF-8'
+    options.memberLevel = JavadocMemberLevel.PUBLIC
+    options.links("https://docs.oracle.com/javase/8/docs/api/")
+}
+```
+- In order to the `PublishImage` stage to work, you need to create a credential in Jenkins with the ID `dockerHubCredentials` and your DockerHub credentials.
+- The `docker` command is available in Jenkins by default, so you don't need to install any additional plugins.
 ### Step 3: Run the Pipelines
 
 1. **Build the Jobs**

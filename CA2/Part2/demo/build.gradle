@@ -60,4 +60,14 @@ task deleteWebpackItems (type: Delete) {
 	delete webpackItems
 }
 
+javadoc {
+	source = sourceSets.main.allJava
+	classpath = configurations.compileClasspath
+	destinationDir = file("$buildDir/docs/javadoc")
+	options.encoding = 'UTF-8'
+	options.memberLevel = JavadocMemberLevel.PUBLIC
+	options.links("https://docs.oracle.com/javase/8/docs/api/")
+}
+
+
 clean.dependsOn deleteWebpackItems
