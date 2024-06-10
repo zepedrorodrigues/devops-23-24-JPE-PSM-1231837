@@ -77,6 +77,8 @@ This tutorial provides a detailed guide for setting up CI/CD pipelines using Jen
       ```bash
       docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
       ```
+      
+
 
 3. **Access Jenkins**
     - Open Jenkins in your browser at `http://localhost:8080`.
