@@ -19,7 +19,7 @@ pipeline {
                         # Set the working directory in the container
                         WORKDIR /app
 
-                        # Copy the WAR file from the host to the container
+                        # Copy the JAR file from the host to the container
                         COPY build/libs/*.jar app.jar
 
                         # Expose the port that the application will run on
@@ -40,6 +40,17 @@ pipeline {
             }
          }
       }
+      stage('Verify Build') {
+                  steps {
+                      dir('CA2/Part2/demo/build/libs') {
+                          script {
+                              if (!fileExists('*.jar')) {
+                                  error 'JAR file not found!'
+                              }
+                          }
+                      }
+                  }
+              }
       stage('Test') {
          steps {
             dir('CA2/Part2/demo') {
