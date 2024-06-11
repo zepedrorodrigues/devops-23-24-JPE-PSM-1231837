@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/zepedrorodrigues/devops-23-24-JPE-PSM-1231837.git', branch: 'master'
+            }
+        }
+        stage('Assemble') {
+            steps {
+                dir('CA2/Part1/gradle_demo') {
+                    sh 'chmod +x ./gradlew'
+                    sh './gradlew assemble'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('CA2/Part1/gradle_demo') {
+                    sh 'chmod +x ./gradlew'
+                    sh './gradlew test'
+                }
+               junit '**/build/test-results/test/*.xml'
+            }
+        }
+        stage('Archive') {
+            steps {
+                dir('CA2/Part1/gradle_demo'){
+                    archiveArtifacts artifacts: 'build/libs/*.jar', allowEmptyArchive: true
+                }
+
+            }
+        }
+    }
+}
