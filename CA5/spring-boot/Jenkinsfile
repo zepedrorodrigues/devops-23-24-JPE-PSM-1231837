@@ -40,6 +40,16 @@ pipeline {
             }
          }
       }
+      stage('List Build Directory') {
+                  steps {
+                      dir('CA2/Part2/demo') {
+                          echo 'Listing build directory contents...'
+                          sh 'ls -l build'
+                          echo 'Listing libs directory contents...'
+                          sh 'ls -l build/libs'
+                      }
+                  }
+              }
       stage('Verify Build') {
                   steps {
                       dir('CA2/Part2/demo/build/libs') {
